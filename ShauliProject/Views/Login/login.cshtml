@@ -1,0 +1,50 @@
+﻿@model ShauliProject.Models.Admin
+
+@{
+    ViewBag.Title = "login";
+}
+<div id="mainContent">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <h4>This is admin only section, please enter your credentials</h4>
+        //this is for create form tag
+        @Html.AntiForgeryToken() // this is for prevent CSRF attack
+                                @Html.ValidationSummary(true)
+        if (@ViewBag.Message != null)
+        {
+
+            <div style="border:1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.Username)</td>
+                <td>@Html.TextBoxFor(a => a.Username)</td>
+                <td>@Html.ValidationMessageFor(a => a.Username)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.Password)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.Password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    }
+</div>
+
+

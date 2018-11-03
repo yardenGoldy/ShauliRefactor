@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ShauliProject.Models.Post>
+
+@Styles.Render("~/Styles/Model.css")
+<script src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
+
+<div id="mainContent">
+    <section>
+        <h3>Search Comments</h3>
+        @using (Html.BeginForm("Search", "Comment", FormMethod.Get))
+        {
+            var comment = new ShauliProject.Models.Comment();
+
+            <div class="searchContriner">
+                @Html.LabelFor(model => comment.Title, "Comment Title", htmlAttributes: new { @class = "control-label col-md-3" })
+                <span class="col-md-4">
+                    @Html.EditorFor(model => comment.Title, new { htmlAttributes = new { @class = "form-control" } })
+                </span>
+            </div>
+            <div class="searchContriner">
+                @Html.LabelFor(model => comment.Writer, "Comment Writer", htmlAttributes: new { @class = "control-label col-md-3" })
+                <span class="col-md-4">
+                    @Html.EditorFor(model => comment.Writer, new { htmlAttributes = new { @class = "form-control" } })
+                </span>
+            </div>
+            <div class="searchContriner">
+                @Html.LabelFor(model => comment.Content, "Comment Content", htmlAttributes: new { @class = "control-label col-md-3" })
+                <span class="col-md-4">
+                    @Html.EditorFor(model => comment.Content, new { htmlAttributes = new { @class = "form-control" } })
+                </span>
+            </div>
+
+            <div class="searchContriner">
+                <input class="btn btn-default" type="submit" name="Search" value="חפש" />
+            </div>
+        }
+    </section>
+    <section>
+        @if (Model.Count() > 0)
+        {
+            <table id="modelTable" class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Writer)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Writer)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                            @Html.ActionLink("Manage Comments", "Index", "Comment", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </section>
+    <div id="postStatsSection">
+        <h3>Most viewed posts</h3>
+    </div>
+
+    <div id="barChartSection">
+        <h3>Top Writers</h3>
+    </div>
+    
+    <script src=@Url.Content("~/Scripts/Graph/d3.js")></script>
+    <script src=@Url.Content("~/Scripts/Graph/piechart.js")></script>
+    <script src=@Url.Content("~/Scripts/Graph/barchart.js")></script>
+</div>

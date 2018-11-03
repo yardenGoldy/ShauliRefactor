@@ -1,0 +1,11 @@
+# Artifacts
+/ShauliProject/bin/**
+/ShauliProject/obj/**
+
+# Visual Studio
+/.vs/**
+/**/*.csproj.user
+/**/Web.config
+
+# Files not for repo
+/ShauliProject/Uploads/**

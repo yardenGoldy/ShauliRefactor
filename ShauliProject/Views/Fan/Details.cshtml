@@ -1,0 +1,70 @@
+﻿@model ShauliProject.Models.Fan
+
+@Styles.Render("~/Styles/Model.css")
+
+<div id="mainContent">
+    <h2>Details</h2>
+
+    <div id="modelDetails">
+        <h4>Fan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfBirth):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YearsOfSeniority):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YearsOfSeniority)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address):
+            </dt>
+            <dd>
+                <div id="@Model.Address" style="display: none; color: red;">The address: '@Model.Address', is not a valid address!</div>
+                <div id="map" style="height: 300px; width: 100%;"></div>
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")'></script>
+    <script src='@Url.Content("~/Scripts/Maps/Maps.js")' type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7jo_XZXB6R2Og-2IOwxcPNPe73yIQLVA&callback=initMap"></script>
+    <script type="text/javascript">convertAddressToGeolocation("@Html.Raw(@Model.Address)")</script>
+</div>

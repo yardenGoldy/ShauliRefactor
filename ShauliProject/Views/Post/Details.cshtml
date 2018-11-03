@@ -1,0 +1,128 @@
+﻿@model ShauliProject.Models.Post
+
+@Styles.Render("~/Styles/Model.css")
+
+<div id="mainContent">
+    <h2>Details</h2>
+
+    <div id="modelDetails">
+        <h4>Post</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Writer)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Writer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WriterWebSiteUrl)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WriterWebSiteUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PublishDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            @if (Model.Image != null && Model.Image != string.Empty)
+            {
+                <dd>
+                    <img src="@(Model.GetImageHtml)" />
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    No Image
+                </dd>
+            }
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Video)
+            </dt>
+            @if (Model.Video != null && Model.Video != string.Empty)
+            {
+                <dd>
+                    <video controls>
+                        <source src="@(Model.GetVideoHtml)" type="video/mp4" />
+                    </video>
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    No Video
+                </dd>
+            }
+        </dl>
+        @if (Model.Comments != null && Model.Comments.Count > 0)
+        {
+            <section id="comments">
+                <h3>Comments</h3>
+                @foreach (var comment in Model.Comments)
+                {
+                    <article>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(modelItem => comment.Title)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => comment.Title)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(modelItem => comment.Writer)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => comment.Writer)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(modelItem => comment.Content)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => comment.Content)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(modelItem => comment.WriterWebSiteUrl)
+                            </dt>
+                            <dd>
+                                <a href="@(comment.WriterWebSiteUrl)">
+                                    @Html.DisplayFor(modelItem => comment.WriterWebSiteUrl)
+                                </a>
+                            </dd>
+                        </dl>
+                    </article>
+                }
+            </section>
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to Home Page", "Index", "Blog")
+    </p>
+</div>

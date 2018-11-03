@@ -1,0 +1,22 @@
+﻿
+@Styles.Render("~/Styles/Model.css")
+@Styles.Render("~/Styles/Canvas.css")
+
+<div id="mainContent">
+    <h2>Paint</h2>
+
+    <p style="border: 50px;">
+        <canvas id="canvasInAPerfectWorld" width="600" height="380" style="border:1px solid #000000; "></canvas>
+    </p>
+    <p>
+        <button id="choosePurple" class="canvasButton canvasButtonPadding" type="button" style="background-color:purple;"></button>
+        <button id="chooseGreen" class="canvasButton canvasButtonPadding" type="button" style="background-color:forestgreen;"></button>
+        <button id="chooseYellow" class="canvasButton canvasButtonPadding" type="button" style="background-color:yellow;"></button>
+        <button id="chooseRed" class="canvasButton canvasButtonPadding" type="button" style="background-color:red;"></button>
+        <button id="Eraser" class="canvasButton" type="button">Eraser</button>
+        <button class="canvasButton" type="button" onclick="download()">Save</button>
+    </p>
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")'></script>
+    <script src='@Url.Content("~/Scripts/Canvas/Canvas.js")' type="text/javascript"></script>
+</div>
+

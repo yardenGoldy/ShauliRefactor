@@ -1,0 +1,40 @@
+﻿#modelTable th,
+#modelTable tr {
+    padding-right: 10px;
+}
+
+#modelDetails dt {
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+    text-align: left;
+}
+
+.hidden {
+    visibility: hidden;
+    display: block !important;
+}
+
+.containerOfMedia {
+    display: inline-block;
+    width: 100%;
+}
+
+.searchContriner {
+    display: inline-block;
+    width: 100%;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+video {
+    width: 250px;
+    height: 250px;
+}

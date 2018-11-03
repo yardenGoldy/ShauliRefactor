@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ShauliProject.Models.Post>
+
+    @Styles.Render("~/Styles/Model.css")
+    <script src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
+
+    <div id="mainContent">
+        <h2>Find Post</h2>
+
+        <section>
+            @if (Model.Count() > 0)
+            {
+                <table id="modelTable" class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Writer)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Writer)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </section>
+
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+        <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")'></script>
+    </div>

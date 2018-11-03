@@ -1,0 +1,375 @@
+/*----------------------------------
+	Developers: 
+	1. Amit Ben Ami (ID: 206337933)
+	2. Danielle Zror (ID: 312526585)
+----------------------------------*/
+
+/*------------------------------
+=BASIC SETUP
+------------------------------*/
+
+/* Makeshift CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
+/* Tell the browser to render HTML 5 elements as block */
+header, footer, section, aside, nav, article {
+	display: block;
+}
+
+#blogTitle {
+	text-shadow: 3px 3px #DDDDDD;
+}
+
+@font-face {
+	font-family: 'Lobster'; 
+    src: url(https://fonts.gstatic.com/s/lobster/v18/cycBf3mfbGkh66G5NhszPQ.woff2); 
+}
+
+body {
+	margin: 0 auto;
+	padding: 22px 0;
+	width: 940px;
+    height: 100%;
+	font: 13px/22px Helvetica, Arial, sans-serif; 
+	background: #F0F0F0;
+}
+
+p {
+	padding-bottom: 22px;
+}
+
+
+
+/*------------------------------
+=NAVIGATION
+------------------------------*/
+        nav ul li #transDemo2 {
+            display: inline-block;
+        }
+
+			nav ul li #transDemo2 div,
+            nav ul li #transDemo2 a {
+				text-align: center;
+				-webkit-transition: all 2s ease-in-out, margin-top 0ms linear;
+				-moz-transition: all 2s ease-in-out, margin-top 0ms linear;
+				-ms-transition: all 2s ease-in-out, margin-top 0ms linear;
+				transition: all 2s ease-in-out, margin-top 0ms linear;
+				float: left;
+				margin-top: 10px;
+			}
+			
+			nav ul li #transDemo2 div, 
+			nav ul li #transDemo2 img {
+				width: 22px;
+				height: 22px;
+			}
+
+			nav ul li #transDemo2 a {
+				float: left;
+			}
+
+			nav ul li #transDemo2 div:hover,
+			nav ul li #transDemo2 div.hover_effect {
+				-webkit-transform: rotate(720deg) scale(2, 2);
+				-moz-transform: rotate(720deg) scale(2, 2);
+				-ms-transform: rotate(720deg) scale(2, 2);
+				transform: rotate(720deg) scale(2, 2);
+			}
+
+/*------------------------------
+=INTRODUCTION
+------------------------------*/
+
+#intro {
+	position: relative;
+	margin-top: 66px;
+	padding: 44px;
+	background: -webkit-linear-gradient(rgb(180, 221, 16), rgb(70, 119, 18));
+	background: -o-linear-gradient(rgb(180, 221, 16), rgb(70, 119, 18));
+	background: -moz-linear-gradient(rgb(180, 221, 16), rgb(70, 119, 18));
+	background: linear-gradient(rgb(180, 221, 16), rgb(70, 119, 18));
+	
+	/* Background-size not implemented yet */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+
+	
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 22px;
+	-webkit-border-radius: 22px;
+    border-radius: 22px;
+}
+
+	#intro h2, #intro p {
+		position: relative;
+		z-index: 9999;
+		width: 436px;
+	}
+	
+	#intro h2 {
+		padding: 0 0 22px 0;
+		font-weight: normal;
+		color: #fff;
+	}
+	
+	#intro p {
+		padding: 0;
+		color: #d9f499;
+	}
+	
+	#intro img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 653px;
+		height: 100%;
+	
+		/* Border-radius not implemented yet */
+		-moz-border-radius: 22px;
+		-webkit-border-radius: 22px;
+        border-radius: 22px;
+	}
+
+/*------------------------------
+=CONTENT AREA AND SIDEBAR LAYOUT
+------------------------------*/
+
+#content {
+	display: table;
+    height: 100%;
+}
+
+	#mainContent {
+		width: 620px;
+		padding-right: 22px;
+        float: left;
+	}
+
+    #mainContent label {
+        text-align: left;
+    }
+
+    #mainContent #noData {
+        text-align: center;
+        font-weight: bold;
+    }
+	
+	aside {
+		display: table-cell;
+		width: 300px;
+		background: url("../images/sidebar_background.png") top left;
+        float: right;
+        height: 100%;
+	}
+
+/*------------------------------
+=MEDIA
+------------------------------*/
+@media(max-width: 576px) {
+    body {
+        width: 100%;
+    }
+    aside {
+        float: left;
+        width: 100%;
+        height: auto;
+        background: none;
+    }
+
+        aside section {
+            float: left;
+            width: 40%;
+            height: 6.5%;
+        }
+
+    nav ul li #transDemo2 {
+        margin-left: 3%;
+    }
+
+    footer div section {
+        display: inline !important;
+    }
+}
+
+/*------------------------------
+=SIDEBAR
+------------------------------*/
+aside section {
+	margin: 22px 0 0 22px;
+	padding: 11px 22px;
+	background: -webkit-linear-gradient(rgb(217, 217, 217), rgb(232, 232, 232));
+	background: -o-linear-gradient(rgb(217, 217, 217), rgb(232, 232, 232));
+	background: -moz-linear-gradient(rgb(217, 217, 217), rgb(232, 232, 232));
+	background: linear-gradient(rgb(217, 217, 217), rgb(232, 232, 232));
+	
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+}
+
+	aside section ul {
+		margin: 0 0 0 22px;
+		list-style: none;
+	}
+	
+		aside section ul li a {
+			display: block;
+			text-decoration: none;
+			color: #000;
+		}
+		
+			aside section ul li a:hover {
+				text-decoration: underline;
+			}
+
+/*------------------------------
+=BLOG POST
+------------------------------*/
+.blogPost {
+	font-family: 'Lobster';
+}
+
+.blogPost header p, .blogPost header p a {
+		font-size: 14px;
+		font-style: italic;
+		color: #777;
+	}
+	
+		.blogPost header p a:hover {
+			text-decoration: none;
+			color: #000;
+		}
+
+.blogPost div {
+	/* Column-count not implemented yet */
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	
+	/* Column-gap not implemented yet */
+	-moz-column-gap: 22px;
+	-webkit-column-gap: 22px;
+}
+
+.blogPost img {
+    width: 250px;
+    height: 250px;
+	margin: 22px 0;
+	-webkit-box-shadow: 3px 3px 7px #777;
+}
+
+    .blogPost video {
+        margin: 12px 0;
+        width: 250px;
+        height: 250px;
+        -webkit-box-shadow: 3px 3px 7px #777;
+    }
+
+/*------------------------------
+=COMMENTS
+------------------------------*/
+
+#comments {
+	margin-top: 21px;
+	padding-top: 22px;
+	border-top: 1px solid #d7d7d7;
+}
+
+	#comments article {
+		display: table;
+		padding: 22px;
+	}
+	
+	#comments article:nth-child(odd) {
+		padding: 21px;
+		background: #E3E3E3;
+		border: 1px solid #d7d7d7;
+		-moz-border-radius: 11px;
+		-webkit-border-radius: 11px;
+	}
+	
+		#comments article header {
+			display: table-cell;
+			width: 220px;
+			padding-right: 22px;
+		}
+		
+			#comments article header a {
+				display: block;
+				font-weight: bold;
+				color: #000;
+			}
+			
+				#comments article header a:hover {
+					text-decoration: none;
+				}
+		
+		#comments article p {
+			padding: 0;
+		}
+
+/*------------------------------
+=COMMENT FORM
+------------------------------*/
+form input.form-control.col-md-9 {
+    width: 75% !important;
+}
+
+/*------------------------------
+=FOOTER
+------------------------------*/
+footer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #222;
+}
+
+	footer div {
+		display: table;
+		margin: 0 auto;
+		padding: 44px 0;
+		width: 940px;
+		color: #777;
+	}
+	
+		footer div section {
+			display: table-cell;
+			width: 300px;
+		}
+		
+		footer div #about, footer div #blogroll {
+			padding-right: 20px;
+		}
+		
+	footer h3 {
+		color: #FFF;
+	}
+	
+	footer a {
+		color: #999;
+	}
+	
+		footer a:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	
+	footer ul {
+		margin: 0 0 0 40px;
+		list-style: square;
+		color: #565656;
+	}
+	
+		footer ul li a {
+			display: block;
+		}

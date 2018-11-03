@@ -1,0 +1,23 @@
+﻿
+@Styles.Render("~/Styles/Model.css")
+
+<div id="mainContent">
+    <h2>Cool things you might want to share on Facebook!</h2>
+
+    <p>
+        <div id="player" style="height: 170px; width: 70%;"></div>
+    </p>
+
+    <div id="status"></div>
+    <div id="shareBtn" class="btn btn-success clearfix">Share</div>
+    <div id="fb-root"></div>
+    <p>
+        <div id="player2" style="height: 170px; width: 70%;"></div>
+    </p>
+    <div id="shareBtn2" class="btn btn-success clearfix">Share</div>
+    <div id="fb-root"></div>
+
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")'></script>
+    <script src='@Url.Content("~/Scripts/Facebook/linkfromYoutube.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/Facebook/Facebook.js")' type="text/javascript"></script>
+</div>

@@ -1,0 +1,93 @@
+﻿@model ShauliProject.Models.Post
+
+@Styles.Render("~/Styles/Model.css")
+
+<div id="mainContent">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div id="modelDetails">
+        <h4>Post</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Writer)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Writer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WriterWebSiteUrl)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WriterWebSiteUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PublishDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            @if (Model.Image != null && Model.Image != string.Empty)
+            {
+                <dd>
+                    <img src="@Model.GetImageHtml" />
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    No Image
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Video)
+            </dt>
+            @if (Model.Video != null && Model.Video != string.Empty)
+            {
+                <dd>
+                    <video controls>
+                        <source src="@Model.GetVideoHtml" />
+                    </video>
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    No Video
+                </dd>
+            }
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>
